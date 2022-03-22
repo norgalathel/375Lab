@@ -30,9 +30,5 @@ public class App {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        //System.out.println(valuesTest[1]);
-        System.out.println(all[1][0]);
-        System.out.println(all[1][1]);
-        System.out.println(all[1][2]);
     }
 }

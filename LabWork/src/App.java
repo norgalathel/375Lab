@@ -1,34 +1,13 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
 public class App {
+
+    
     public static void main(String[] args) throws Exception {
-        String fileName = "Datasets/01-January.csv";
-        File file = new File(fileName);
-        //String[] valuesTest = new String[20];
-        int[][] all = new int[12][3];
-        int j=1;
-        int i=1;
-        try {
-            Scanner fileInput = new Scanner(file);
-            fileInput.next();
-            while(fileInput.hasNext()){
-                String data = fileInput.next();
-                String[] values = data.split(",");
-                //valuesTest = values;
-                while(j<4){
-                    all[i-1][j-1]=Integer.parseInt(values[j]);
-                    j++;
-                }
-                if(j==4){
-                    j=1;
-                }
-                i++;
-            }
-            fileInput.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        String[] fileNames = {"Datasets/01-January.csv","Datasets/02-February.csv","Datasets/03-March.csv","Datasets/04-April.csv","Datasets/05-May.csv","Datasets/06-June.csv", "Datasets/07-July.csv", "Datasets/08-August.csv", "Datasets/09-September", "Datasets/10-October.csv", "Datasets/11-November.csv", "Datasets/12-December.csv"};
+        int i = 0;
+        while(i<12){
+            MyThread t = new MyThread(fileNames[i]);
+            t.run();
+            i++;
         }
     }
 }
